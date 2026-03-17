@@ -2,88 +2,41 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>互動圓 + 跑馬燈</title>
+  <title>修正版互動圓</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: #000;
-      font-family: sans-serif;
-      overflow: hidden;
     }
 
-    /* 跑馬燈 */
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-      position: absolute;
-      top: 50px;
-    }
-
-    .track {
-      display: flex;
-      width: max-content;
-      animation: scroll 15s linear infinite;
-      gap: 20px;
-    }
-
-    .track img {
-      height: 80px;
-      border-radius: 10px;
-    }
-
-    @keyframes scroll {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(100%);
-      }
-    }
-
-    /* 圓形 */
     .container {
       display: flex;
       gap: 40px;
     }
 
     .item {
-      position: relative;
       text-align: center;
       color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
+    /* 👉 外層負責放大 */
+    .item:hover {
+      transform: scale(1.3);
+    }
+
+    /* 👉 內層負責呼吸 */
     .circle {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       background: radial-gradient(circle, #ffffff 0%, #000000 70%);
       animation: breathe 3s ease-in-out infinite;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    /* 👉 滑鼠移上去變大 */
-    .item:hover .circle {
-      transform: scale(1.35);
-    }
-
-    .text {
-      position: absolute;
-      top: 140px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .item:hover .text {
-      opacity: 1;
     }
 
     @keyframes breathe {
@@ -96,35 +49,36 @@
         opacity: 1;
       }
     }
+
+    .text {
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .item:hover .text {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
-  <!-- 跑馬燈 -->
-  <div class="marquee">
-    <div class="track">
-      <img src="https://via.placeholder.com/150">
-      <img src="https://via.placeholder.com/150/888">
-      <img src="https://via.placeholder.com/150/444">
-      <img src="https://via.placeholder.com/150/222">
-      <img src="https://via.placeholder.com/150/aaa">
-    </div>
-  </div>
-
-  <!-- 圓形 -->
   <div class="container">
     <div class="item">
       <div class="circle"></div>
       <div class="text">第一顆</div>
     </div>
+
     <div class="item">
       <div class="circle"></div>
       <div class="text">第二顆</div>
     </div>
+
     <div class="item">
       <div class="circle"></div>
       <div class="text">第三顆</div>
     </div>
+
     <div class="item">
       <div class="circle"></div>
       <div class="text">第四顆</div>
