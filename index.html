@@ -45,7 +45,7 @@
       }
     }
 
-    /* 圓形區 */
+    /* 圓形 */
     .container {
       display: flex;
       gap: 40px;
@@ -64,6 +64,12 @@
       background: radial-gradient(circle, #ffffff 0%, #000000 70%);
       animation: breathe 3s ease-in-out infinite;
       cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    /* 👉 滑鼠移上去變大 */
+    .item:hover .circle {
+      transform: scale(1.35);
     }
 
     .text {
@@ -86,7 +92,7 @@
         opacity: 0.9;
       }
       50% {
-        transform: scale(1.15);
+        transform: scale(1.1);
         opacity: 1;
       }
     }
@@ -97,7 +103,7 @@
   <!-- 跑馬燈 -->
   <div class="marquee">
     <div class="track">
-      <img src="https://github.com/d03280112-sketch/PO/blob/main/image/DSC_0004.JPG">
+      <img src="https://via.placeholder.com/150">
       <img src="https://via.placeholder.com/150/888">
       <img src="https://via.placeholder.com/150/444">
       <img src="https://via.placeholder.com/150/222">
@@ -109,11 +115,11 @@
   <div class="container">
     <div class="item">
       <div class="circle"></div>
-      <div class="text">第一顆</div>
+      <div class="text">簡介</div>
     </div>
     <div class="item">
       <div class="circle"></div>
-      <div class="text">第二顆</div>
+      <div class="text">作品</div>
     </div>
     <div class="item">
       <div class="circle"></div>
