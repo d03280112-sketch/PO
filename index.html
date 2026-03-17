@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>修正版互動圓</title>
+  <title>焦點圓</title>
   <style>
     body {
       margin: 0;
@@ -19,18 +19,21 @@
     }
 
     .item {
-      text-align: center;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* 👉 外層負責放大 */
+    /* 👉 當滑鼠進入整個區域，全部先縮小 */
+    .container:hover .item {
+      transform: scale(0.8);
+      opacity: 0.4;
+    }
+
+    /* 👉 被滑到的那顆放大 */
     .item:hover {
-      transform: scale(1.3);
+      transform: scale(1.4) !important;
+      opacity: 1 !important;
     }
 
-    /* 👉 內層負責呼吸 */
     .circle {
       width: 120px;
       height: 120px;
@@ -42,18 +45,18 @@
     @keyframes breathe {
       0%, 100% {
         transform: scale(1);
-        opacity: 0.9;
       }
       50% {
-        transform: scale(1.1);
-        opacity: 1;
+        transform: scale(1.08);
       }
     }
 
     .text {
+      text-align: center;
+      color: white;
       margin-top: 10px;
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: 0.3s;
     }
 
     .item:hover .text {
