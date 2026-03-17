@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>呼吸的圓</title>
+  <title>四顆呼吸的圓</title>
   <style>
     body {
       margin: 0;
@@ -13,12 +13,17 @@
       background: #000;
     }
 
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 150px);
+      grid-gap: 40px;
+    }
+
     .circle {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       background: radial-gradient(circle, #ffffff 0%, #000000 70%);
-      
       animation: breathe 3s ease-in-out infinite;
     }
 
@@ -35,6 +40,11 @@
   </style>
 </head>
 <body>
-  <div class="circle"></div>
+  <div class="container">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
 </body>
 </html>
