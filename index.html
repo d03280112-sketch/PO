@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>中心圓形</title>
+  <title>呼吸的圓</title>
   <style>
     body {
       margin: 0;
@@ -10,14 +10,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #111; /* 背景深一點比較有感 */
+      background: #000;
     }
 
     .circle {
       width: 150px;
       height: 150px;
-      background-color: #4CAF50;
       border-radius: 50%;
+      background: radial-gradient(circle, #ffffff 0%, #000000 70%);
+      
+      animation: breathe 3s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
     }
   </style>
 </head>
