@@ -2,38 +2,68 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>焦點圓</title>
+  <title>完整互動版</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
+      background: #000;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #000;
+      font-family: sans-serif;
+      overflow: hidden;
     }
 
+    /* ===== 跑馬燈 ===== */
+    .marquee {
+      position: absolute;
+      top: 50px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .track {
+      display: flex;
+      gap: 20px;
+      animation: scroll 20s linear infinite;
+    }
+
+    .track img {
+      height: 80px;
+      border-radius: 10px;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(100%); }
+    }
+
+    /* ===== 圓區 ===== */
     .container {
       display: flex;
-      gap: 40px;
+      gap: 50px;
     }
 
     .item {
       transition: transform 0.3s ease, opacity 0.3s ease;
+      text-align: center;
     }
 
-    /* 👉 當滑鼠進入整個區域，全部先縮小 */
+    /* 全部縮小 */
     .container:hover .item {
       transform: scale(0.8);
       opacity: 0.4;
     }
 
-    /* 👉 被滑到的那顆放大 */
+    /* 被選中的放大 */
     .item:hover {
       transform: scale(1.4) !important;
       opacity: 1 !important;
     }
 
+    /* 圓本體（負責呼吸） */
     .circle {
       width: 120px;
       height: 120px;
@@ -43,18 +73,14 @@
     }
 
     @keyframes breathe {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.08);
-      }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
     }
 
+    /* 文字 */
     .text {
-      text-align: center;
+      margin-top: 12px;
       color: white;
-      margin-top: 10px;
       opacity: 0;
       transition: 0.3s;
     }
@@ -66,25 +92,37 @@
 </head>
 <body>
 
+  <!-- 跑馬燈 -->
+  <div class="marquee">
+    <div class="track">
+      <img src="https://raw.githubusercontent.com/d03280112-sketch/PO/refs/heads/main/image/DSC_0004.JPG">
+      <img src="https://via.placeholder.com/150/888">
+      <img src="https://via.placeholder.com/150/444">
+      <img src="https://via.placeholder.com/150/222">
+      <img src="https://via.placeholder.com/150/aaa">
+    </div>
+  </div>
+
+  <!-- 圓 -->
   <div class="container">
     <div class="item">
       <div class="circle"></div>
-      <div class="text">第一顆</div>
+      <div class="text">商品</div>
     </div>
 
     <div class="item">
       <div class="circle"></div>
-      <div class="text">第二顆</div>
+      <div class="text">品牌</div>
     </div>
 
     <div class="item">
       <div class="circle"></div>
-      <div class="text">第三顆</div>
+      <div class="text">關於我們</div>
     </div>
 
     <div class="item">
       <div class="circle"></div>
-      <div class="text">第四顆</div>
+      <div class="text">聯絡</div>
     </div>
   </div>
 
